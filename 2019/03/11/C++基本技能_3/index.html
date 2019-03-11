@@ -136,17 +136,17 @@
 
 
 
-<meta name="description" content="整理一下自己C++方面的知识，总结一些心得。左值右值的区别，函数相关，变量及其存储的一些总结 左值与右值C++中每个变量、表达式的结果分为左值与右值两类。左值:内存中持续存储的数据。且既能够出现在等号左边也能出现在等号右边右值:临时存储的结果。且只能出现在等号右边。">
+<meta name="description" content="整理一下自己C++方面的知识，总结一些心得。 类与对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++知识整理&lt;一&gt;">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/C++基本技能/index.html">
+<meta property="og:title" content="C++知识整理&lt;三&gt;">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/C++基本技能_3/index.html">
 <meta property="og:site_name" content="Xfx&#39;Note">
-<meta property="og:description" content="整理一下自己C++方面的知识，总结一些心得。左值右值的区别，函数相关，变量及其存储的一些总结 左值与右值C++中每个变量、表达式的结果分为左值与右值两类。左值:内存中持续存储的数据。且既能够出现在等号左边也能出现在等号右边右值:临时存储的结果。且只能出现在等号右边。">
+<meta property="og:description" content="整理一下自己C++方面的知识，总结一些心得。 类与对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T12:24:11.147Z">
+<meta property="og:updated_time" content="2019-03-11T15:22:34.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++知识整理&lt;一&gt;">
-<meta name="twitter:description" content="整理一下自己C++方面的知识，总结一些心得。左值右值的区别，函数相关，变量及其存储的一些总结 左值与右值C++中每个变量、表达式的结果分为左值与右值两类。左值:内存中持续存储的数据。且既能够出现在等号左边也能出现在等号右边右值:临时存储的结果。且只能出现在等号右边。">
+<meta name="twitter:title" content="C++知识整理&lt;三&gt;">
+<meta name="twitter:description" content="整理一下自己C++方面的知识，总结一些心得。 类与对象">
 
 
 
@@ -176,13 +176,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/C++基本技能/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/C++基本技能_3/">
 
 
 
 
 
-  <title>C++知识整理<一> | Xfx'Note</一></title>
+  <title>C++知识整理<三> | Xfx'Note</三></title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/C++基本技能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/C++基本技能_3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hl">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++知识整理<一></一></h1>
+          <h1 class="post-title" itemprop="name headline">C++知识整理<三></三></h1>
         
 
         <div class="post-meta">
@@ -378,7 +378,7 @@
 
           
           
-             <span id="/2019/03/11/C++基本技能/" class="leancloud_visitors" data-flag-title="C++知识整理<一>">
+             <span id="/2019/03/11/C++基本技能_3/" class="leancloud_visitors" data-flag-title="C++知识整理<三>">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,26 +430,27 @@
       
 
       
-        <p>整理一下自己C++方面的知识，总结一些心得。<br>左值右值的区别，函数相关，变量及其存储的一些总结</p>
-<h1 id="左值与右值"><a href="#左值与右值" class="headerlink" title="左值与右值"></a>左值与右值</h1><p>C++中每个变量、表达式的结果分为左值与右值两类。<br>左值:内存中持续存储的数据。且既能够出现在等号左边也能出现在等号右边<br>右值:临时存储的结果。且只能出现在等号右边。<br><a id="more"></a><br>比如当你声明一个独立的变量<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> k</span><br></pre></td></tr></table></figure></p>
-<p>这个<strong>k</strong>就是一个左值，因为他在内存会持续存在，直到你释放或者编译器释放他为止。<br>又比如一个表达式<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int a</span> = 0;</span><br><span class="line"><span class="attribute">int b</span> = 1;</span><br><span class="line"><span class="attribute">int c</span> = 2;</span><br><span class="line"><span class="attribute">a</span> = b+c;</span><br></pre></td></tr></table></figure><br>在这里<strong>b+c</strong>就是一个右值，因为他表示的是b+c运算之后产生的值，而这个值你要是不用一个变量去保存，那么接下来他就会消失，而不会持续存在。同理<strong>a++</strong>也是一个右值。</p>
-<p>更多详细参考:<br><a href="https://www.cnblogs.com/qicosmos/p/4283455.html" target="_blank" rel="noopener">https://www.cnblogs.com/qicosmos/p/4283455.html</a></p>
-<h1 id="函数方面重点"><a href="#函数方面重点" class="headerlink" title="函数方面重点"></a>函数方面重点</h1><h3 id="1、默认参数与可变参数"><a href="#1、默认参数与可变参数" class="headerlink" title="1、默认参数与可变参数"></a>1、默认参数与可变参数</h3><h5 id="a-默认参数"><a href="#a-默认参数" class="headerlink" title="a.默认参数"></a>a.默认参数</h5><p>在调用有参函数时，如果经常需要传递同一个值到调用函数，在定义函数时，我们就可以为参数设置一个默认值，这样在调用的时候可以省略一些参数。下面伪代码就定义了一个有默认参数的函数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* pch = <span class="string">"defalut value"</span>)</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;pch&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    test();</span><br><span class="line">    test(<span class="string">"new value"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这样的函数调用，第一个会输出<br><strong>defalut value</strong><br>第二个会输出<br><strong>new value</strong></p>
-<h5 id="b-可变参数"><a href="#b-可变参数" class="headerlink" title="b.可变参数"></a>b.可变参数</h5><p>库函数printf就是一个可变参数，他的参数列表会显示”…”。printf函数原型格式如下<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_<span class="function">CRTIMP int_cdecl <span class="title">printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* , ...)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>省略号参数代表的含义是函数参数是不固定的，可以传递一个或多个参数，例如<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">printf(<span class="string">"%d<span class="subst">\n</span>"</span>,<span class="number">1997</span>);    <span class="comment">//输出一个信息1997</span></span><br><span class="line">printf(<span class="string">"%s-&gt;%s<span class="subst">\n</span>"</span>,<span class="string">"you"</span>,<span class="string">"cool"</span>);    <span class="comment">//输出两个信息you-&gt;cool</span></span><br></pre></td></tr></table></figure></p>
-<p>声明可变参数函数和普通函数一样，只是参数列表中有一个”…”。如<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> OutYourNum(<span class="built_in">int</span> <span class="built_in">num</span>...)</span><br></pre></td></tr></table></figure></p>
-<p>对于课表参数的函数，在定义函数的时候需要一一读取用户传递的实际参数。<br><strong>va_list</strong>类型和<strong>va_start、va_arg、va_end</strong>三个宏读取传递到函数中的参数值。<br>使用的时候需要引用<strong>STDARG.H</strong>头文件</p>
-<h3 id="2、内联函数"><a href="#2、内联函数" class="headerlink" title="2、内联函数"></a>2、内联函数</h3><p>通过inline关键字可以把函数定义为内联函数，编译器会在每个调用该函数的地方展开一个函数副本。定义如下<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a ,<span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>虽然使用内联函数可以减少函数调用带来的开销（在程序所在文件内移动指针寻找调用函数的地址带来的开销），但是在函数体较大的时候不推荐使用，因为在调用点插入一个一千行的代码的函数也不大可能，还有就是<strong>递归函数</strong>也是不能声明为内联函数的</p>
-<h3 id="3、变量的存储与内存分配"><a href="#3、变量的存储与内存分配" class="headerlink" title="3、变量的存储与内存分配"></a>3、变量的存储与内存分配</h3><h4 id="a-内存种分为哪几区"><a href="#a-内存种分为哪几区" class="headerlink" title="a.内存种分为哪几区"></a>a.内存种分为哪几区</h4><p><strong>1. 栈区(Stack):</strong> 就是那些由编译器在需要的时候分配，在不需要的时候自动清楚的变量的存储区。里面的变量通常是局部变量、函数参数等。<br><strong>2. 堆区(Heap):</strong> 由程序员自己分配和释放，一般是通过关键字<strong>new</strong>分配，<strong>delete</strong>释放，一般一个new就要对应一个delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。（内存泄漏的主要原因）<br><strong>3. 全局区(静态区)(Static):</strong> 全局变量和静态变量被分配到同一块内存中，在以前的c语言中，全局变量又分为初始化的和未初始化的，在c++里面没有这个区分了，他们共同占用同一块内存区。程序结束后由系统释放。<br><strong>4. 常量存储区:</strong> 这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改，程序结束后由系统释放。<br><strong>5. 自由存储区:</strong> 就是那些由malloc等分配的内存块，他和堆是十分相似的，不过它是用free来结束自己的生命的。</p>
-<h4 id="b-变量存储的类别"><a href="#b-变量存储的类别" class="headerlink" title="b.变量存储的类别"></a>b.变量存储的类别</h4><p><strong> auto变量:</strong> 自动存储变量是C++中的默认变量类型，如<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int i<span class="comment">;</span></span><br><span class="line">aotu int i<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>上面两种变量声明方式是等价的。<br>自动变量属于动态存储方式，内存分配在栈中。</p>
-<p><strong> static变量:</strong> 在声明变量前加上static关键字，可以将变量声明为静态变量。静态变量具有以下特点<br>(1) 静态变量在函数内定义，在程序退出时释放，在程序整个运行期间都不释放，也就是说他的生存期为整个源程序。<br>(2) 静态变量的作用于与自动变量相同，在函数内定义就在函数内使用，尽管改变量还继续存在，但不能使用它，如再次调用定义它的函数时，他又可继续使用。<br>(3) 编译器会为静态局部变量赋予0值。</p>
-<p><strong> register变量:</strong> 通常变量的值存放在内存中，当对一个变量品番读写是，需要反复访问内存，则花费大量的存取时间。为了提高效率，C++语言可以将变量声明为寄存器变量，这种变量将局部变量的值存放在CPU寄存器中，使用时就不需要访问内存，直接从寄存器中读写。<br>(1) 寄存器变量属于动态存储方式。凡是需要采用静态存储方式的变量都不能定义为寄存器变量。<br>(2) 编译程序会自动决定哪个变量使用寄存器存储。register起到程序优化的作用。</p>
-<p><strong> extern变量:</strong> C++语言支持分离式编译机制，该机制允许将程序分割为若干个文件，每个文件可被独立编译。为了将程序分为许多文件，则需要在文件中共享代码，例如一个文件的代码可能需要另一个文件中中定义的变量。<br>为了支持分离式编译，C++允许将声明和定义分离开来。变量的声明规定了变量的类型和名字，即使一个名字为程序所知，一个文件如果想使用别处定义的名字则必须包含对那个名字的声明。定义则负责创建与名字关联的实体，定义还申请存储空间。<br>如果想声明一个变量而非定义它，就在变量名前添加extern关键字，而且不要显式地初始化变量：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> i;  <span class="comment">//声明i而非定义</span></span><br><span class="line"><span class="keyword">int</span> j;         <span class="comment">//声明并定义i</span></span><br></pre></td></tr></table></figure></p>
-<p>但我们也可以给由extern关键字标记的变量赋一个初始值，但这样就不是一个声明了，而是一个定义：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="keyword">int</span> v = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> v = <span class="number">2</span>;     <span class="comment">//这两个语句效果完全一样，都是v的定义</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：</strong> 变量能且只能被定义一次，但是可以被声明多次。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>最近学习完C++之后，对于C++有了一些自己的理解，于是就有了这篇博客。<br>C++不同于其他的面对对象语言，他没有那些高级的数据类型，如列表，字典等。但他能通过指针创造一片属于自己的天下。不管你是最终选择了何种语言，C++你一定要学，他能让你从深层次理解代码是如何写出来的。</p>
+        <p>整理一下自己C++方面的知识，总结一些心得。</p>
+<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><a id="more"></a>
+<h4 id="C-中的类"><a href="#C-中的类" class="headerlink" title="C++中的类"></a>C++中的类</h4><p>类是一种将抽象转换为用户定义类型的C++工具，他将数据表示和操作数据的方法组合合成一个整洁的包</p>
+<h4 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h4><p>C++类的定义如下:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="keyword">char</span>* b;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        test(<span class="keyword">int</span> x,<span class="keyword">char</span>* y):a(x),b(y)&#123;   <span class="comment">//构造函数</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ~test()&#123;                        <span class="comment">//析构函数</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"析构函数调用"</span>;</span><br><span class="line">        &#125;           </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    test(<span class="number">3</span>,<span class="string">"asdasd"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序输出为:<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line">asdasd</span><br><span class="line">析构函数调用</span><br></pre></td></tr></table></figure></p>
+<p>使用类的时候通过调用构造函数构建该类，一般在构造函数中初始化一系列数值，当类调用结束之后会调用其析构函数，所以一般在这里释放一些存储在堆里面的变量等。</p>
+<p>并且析构函数一般定义为 virtual类型，这是因为如果一个父类使用了子类的构造方法，那么，在释放的时候就只会调用父类的析构函数，这样就会导致子类的析构函数没有调用，从而造成内存泄漏<br>代码如下:<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    ~A() </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"A::~A"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A </span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    <span class="keyword">virtual</span> ~B() </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"B::~B"</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>此时<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A* d = <span class="keyword">new</span> <span class="type">B</span>();</span><br></pre></td></tr></table></figure></p>
+<p>这句话在main函数中调用完毕之后不会调用B中的析构函数，只会调用A中的。<br>所以在C++在实现多态和继承关系的时候要讲基类的析构函数定义为virtual类型。</p>
+<h4 id="运算符重载与友元"><a href="#运算符重载与友元" class="headerlink" title="运算符重载与友元"></a>运算符重载与友元</h4><p>在类中用<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回值类型 <span class="keyword">operator</span> 需要重载的运算符 (重载的类型 形参) &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样的形式重载运算符。<br>例如<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="keyword">char</span>* b;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Test(<span class="keyword">int</span> x,<span class="keyword">char</span>* y):a(x),b(y)&#123;   <span class="comment">//构造函数</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">operator</span>+ (<span class="keyword">int</span> i)&#123;</span><br><span class="line">            <span class="keyword">return</span> a+i;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ~Test()&#123;                        <span class="comment">//析构函数</span></span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"析构函数调用"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">Test <span class="title">t</span><span class="params">(<span class="number">3</span>,<span class="string">"asdasd"</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;t + <span class="number">3</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出如下<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line">asdasd</span><br><span class="line"><span class="number">6</span></span><br><span class="line">析构函数调用</span><br></pre></td></tr></table></figure></p>
+<p>然而这样的重载对于<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">t</span> = <span class="number">3</span>+<span class="built_in">t</span></span><br></pre></td></tr></table></figure></p>
+<p>是不行的。因为在使用重载运算符的时候左侧的操作数是调用对象，也就是说语句<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">A</span>=B+<span class="number">3</span></span><br></pre></td></tr></table></figure></p>
+<p>将被转换位下面的成员函数调用:<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">A</span> = B.operator+(3);</span><br></pre></td></tr></table></figure></p>
+<p>所以当左侧操作数为非重载运算符的类的时候会出错，不能正确的将语句转换</p>
+<p>所以在对于以上二元操作符的时候我们一般采用友元的方式重载运算符(非成员函数)</p>
+<p>重载类型如下:<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Test </span>operator +(int i , const Test &amp; t);</span><br></pre></td></tr></table></figure></p>
+<p>他会将上述语句转换为<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = operator+(3 , B);</span><br><span class="line"></span><br><span class="line">所以成员函数定义的重载和非成员函数定义的重载处理操作数的顺序是反的</span><br><span class="line"></span><br><span class="line"><span class="section">创建友元函数的第一步就是将其原型放在类声明中，并在原型声明钱加上关键字friend:</span></span><br></pre></td></tr></table></figure></p>
+<p>friend Test operator+(int i , const Test &amp; t);<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">该原型意味着以下两点:</span></span><br></pre></td></tr></table></figure></p>
+<p>虽然operator+()函数是在类声明中声明的，但他不是成员函数，因此不能用成员运算符来调用<br>虽然operator+()函数不是成员函数，但他拥有和成员函数一样的访问权限<code>`</code><br>因此在编写该函数时，不用加上限定符<strong>Test::</strong></p>
 
       
     </div>
@@ -486,19 +487,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/11/C++基本技能_2/" rel="next" title="C++知识整理<二>">
-                <i class="fa fa-chevron-left"></i> C++知识整理<二>
-              </二></a>
+              <a href="/2019/03/11/C++基本技能/" rel="next" title="C++知识整理<一>">
+                <i class="fa fa-chevron-left"></i> C++知识整理<一>
+              </一></a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/11/C++基本技能_3/" rel="prev" title="C++知识整理<三>">
-                C++知识整理<三> <i class="fa fa-chevron-right"></i>
-              </三></a>
             
           </div>
         </div>
@@ -642,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#左值与右值"><span class="nav-number">1.</span> <span class="nav-text">左值与右值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数方面重点"><span class="nav-number">2.</span> <span class="nav-text">函数方面重点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、默认参数与可变参数"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、默认参数与可变参数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-默认参数"><span class="nav-number">2.0.1.0.1.</span> <span class="nav-text">a.默认参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-可变参数"><span class="nav-number">2.0.1.0.2.</span> <span class="nav-text">b.可变参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、内联函数"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、内联函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、变量的存储与内存分配"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、变量的存储与内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-内存种分为哪几区"><span class="nav-number">2.0.3.1.</span> <span class="nav-text">a.内存种分为哪几区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-变量存储的类别"><span class="nav-number">2.0.3.2.</span> <span class="nav-text">b.变量存储的类别</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">2.1.</span> <span class="nav-text">结语</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类与对象"><span class="nav-number">1.</span> <span class="nav-text">类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#C-中的类"><span class="nav-number">1.0.1.</span> <span class="nav-text">C++中的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数和析构函数"><span class="nav-number">1.0.2.</span> <span class="nav-text">构造函数和析构函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符重载与友元"><span class="nav-number">1.0.3.</span> <span class="nav-text">运算符重载与友元</span></a></li></ol></li></ol></div>
             
 
           </div>
